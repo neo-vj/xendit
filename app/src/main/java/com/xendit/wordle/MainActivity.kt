@@ -13,6 +13,7 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.toUpperCase
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -43,7 +44,31 @@ class MainActivity : ComponentActivity() {
 
 
                     wordleViewModel.getWordleLiveData1().observe(this, Observer {
-                        Toast.makeText(this,it.toString(),Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this,it.toString().toUpperCase(),Toast.LENGTH_SHORT).show()
+                    })
+
+                    wordleViewModel.getWordleLiveData1().observe(this, Observer {
+                        Toast.makeText(this,it.toString().toUpperCase(),Toast.LENGTH_SHORT).show()
+                    })
+
+                    wordleViewModel.getWordleLiveData2().observe(this, Observer {
+                        Toast.makeText(this,it.toString().toUpperCase(),Toast.LENGTH_SHORT).show()
+                    })
+
+                    wordleViewModel.getWordleLiveData3().observe(this, Observer {
+                        Toast.makeText(this,it.toString().toUpperCase(),Toast.LENGTH_SHORT).show()
+                    })
+
+                    wordleViewModel.getWordleLiveData4().observe(this, Observer {
+                        Toast.makeText(this,it.toString().toUpperCase(),Toast.LENGTH_SHORT).show()
+                    })
+
+                    wordleViewModel.getWordleLiveData5().observe(this, Observer {
+                        Toast.makeText(this,it.toString().toUpperCase(),Toast.LENGTH_SHORT).show()
+                    })
+
+                    wordleViewModel.getWordleLiveData6().observe(this, Observer {
+                        Toast.makeText(this,it.toString().toUpperCase(),Toast.LENGTH_SHORT).show()
                     })
 
                     // Wordle Screen
@@ -77,10 +102,44 @@ fun WordleScreen(wordleViewModel: WordleViewModel) {
             verticalArrangement = Arrangement.Center
         ) {
 
-            WordleTextFields(length = 5) { getWordS ->
+            WordleTextFields(length = 5,wordleViewModel = wordleViewModel) { getWordS ->
                 getWords = getWordS
                 wordleViewModel.wordleLiveData1.value=getWordS
+            }
 
+            Spacer(modifier = Modifier.height(10.dp))
+
+            WordleTextFields(length = 5,wordleViewModel = wordleViewModel) { getWordS ->
+                getWords = getWordS
+                wordleViewModel.wordleLiveData2.value=getWordS
+            }
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+            WordleTextFields(length = 5,wordleViewModel = wordleViewModel) { getWordS ->
+                getWords = getWordS
+                wordleViewModel.wordleLiveData3.value=getWordS
+            }
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+            WordleTextFields(length = 5,wordleViewModel = wordleViewModel) { getWordS ->
+                getWords = getWordS
+                wordleViewModel.wordleLiveData4.value=getWordS
+            }
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+            WordleTextFields(length = 5,wordleViewModel = wordleViewModel) { getWordS ->
+                getWords = getWordS
+                wordleViewModel.wordleLiveData5.value=getWordS
+            }
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+            WordleTextFields(length = 5,wordleViewModel = wordleViewModel) { getWordS ->
+                getWords = getWordS
+                wordleViewModel.wordleLiveData6.value=getWordS
             }
         }
     }
